@@ -16,7 +16,7 @@ The model is implemented in Flask.
 
 The webapp enables quick assessment of sea cage conditions.
 
-## Rerence
-MS1: In review
-MS2: Draft
-MS3: Draft
+## References
+* MS1: In review
+* MS2: Draft
+* MS3: Draft
