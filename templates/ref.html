@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="{{url_for('static', filename='WebLogo.ico')}}", size="64x64">
+        <meta charset="utf-8">
+
+        <title>References</title>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        
+        <title>Aquaculture model</title>
+
+        <script type="text/javascript" src= {{ cdn_js|safe }} ></script>
+
+        <style>
+            div {
+            margin: 20 auto;
+            }
+
+            .middle {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: left;
+            }
+            
+            
+
+        </style>
+    </head>
+    <body>
+        <link rel="icon" href="{{url_for('static', filename='WebLogo.ico')}}", size="64x64">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <!--<a class="navbar-brand" href="#">Testy</a>-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="/">Home</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="/model/">The Model</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link active" href="/ref/">References</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="/about/">About</a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="middle">
+            <H1>References</H1>
+            <p><b>Preset datasets</b></p>
+            <p> Bergsson, H., Svendsen, M. B. S. & Steffensen, J. F. (Unpublished). Oxygen availability within ocean farming - modelling the answers</p>
+            <p> Bergsson, H., Kalsø, S., Svendsen, M. B. S. & Steffensen, J. F. (Unpublished). Postprandial somnolence: Does feeding affect swimming preferenda in Rainbow trout</p>
+            <p><b>Dissolved Oxygen threshold</b></p>
+            <p> Remen, M., Sievers, M., Torgersen, T., & Oppedal, F. (2016). The oxygen threshold for maximal feed intake of Atlantic salmon post-smolts is highly temperature-dependent. Aquaculture, 464, 582-592.</p>
+            <p> Pedersen, C. L. (1987). Energy budgets for juvenile rainbow trout at various oxygen concentrations. Aquaculture, 62(3-4), 289-298.</p>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+{%extends "layout.html"%}
+{%block content%}
+
+ <!-- Bokeh includes-->
+ <link rel="stylesheet" href= {{cdn_css | safe}} type="text/css" />
+ <script type="text/javascript" src= {{cdn_js | safe}}  ></script>
+
+<div class="plot">
+    <h1>My first plot</h1>
+    <p>This is my very first plot... I'm sooo happy</p>
+</div>
+
+{{script1 | safe}}
+{{div1 | safe}}
+{%endblock%}

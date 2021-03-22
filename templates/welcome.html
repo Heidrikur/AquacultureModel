@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="icon" href="{{url_for('static', filename='WebLogo.ico')}}", size="64x64">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        
+        <title>Aquaculture model</title>
+
+        <script type="text/javascript" src= {{ cdn_js|safe }} ></script>
+
+        <style>
+            img {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                border-radius: 8px;
+                max-width: auto;
+                height: auto;
+            }
+
+           .bottommiddle {
+            position: absolute;
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            }
+
+            .middle {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            }
+
+            hr {
+            margin: auto;
+            width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+      <link rel="icon" href="{{url_for('static', filename='WebLogo.ico')}}", size="64x64">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <!--<a class="navbar-brand" href="#">Testy</a>-->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-item nav-link active" href="/">Home</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-item nav-link" href="/model/">The Model</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-item nav-link" href="/ref/">References</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-item nav-link" href="/about/">About</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+
+        <div class="bottommiddle">
+            <p>Sponsored by:</p>
+            <img src="{{url_for('static', filename='gudp_logo.jpg')}}" alt="cover" style="width:35%">
+        </div>
+        <div class="middle">
+            <img src="{{url_for('static', filename='coverimage.jpg')}}" alt="cover" style="width:55%">
+            <p></p>
+                    <!--<img src="{{url_for('static', filename='coverimageMirror.jpg')}}" alt="cover" style="width:50%">
+            <div class="bottomright">Photo by: Heiðrikur Bergsson</div>-->
+            
+            <h3>Welcome to the GUDP FITFISH aquaculture model</h3>
+            <p>This model was created in order to increase understanding of oxygen availability in aquaculture cages</p>
+            <hr>
+            
+
+            <!--<p id="demo" style="font-size:25px"></p>-->
+            <p></p>
+            <a href="/model/"><button class='btn btn-primary btn-lg'>Go to the Model</button></a>
+            <p>version 0, released 05-03-2021</p>    
+        </div>
+          
+            <!--<img src="{{url_for('static', filename='coverimage.jpg')}}" alt="cover" style="width:100%">
+            Green Development and Demonstration Programme
+            -->
+        
+        </div>
+          
+        <script>
+          // Set the date we're counting down to
+          var countDownDate = new Date("Mar 15, 2021 23:59:59").getTime();
+          
+          // Update the count down every 1 second
+          var countdownfunction = setInterval(function() {
+          
+            // Get todays date and time
+            var now = new Date().getTime();
+            
+            // Find the distance between now an the count down date
+            var distance = countDownDate - now;
+            
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+            
+            // If the count down is over, write some text 
+            if (distance < 0) {
+              clearInterval(countdownfunction);
+              document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+          }, 1000);
+        </script>
+
+    </body>
+</html>
+
+

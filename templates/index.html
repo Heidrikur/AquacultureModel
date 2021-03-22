@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="{{url_for('static', filename='WebLogo.ico')}}", size="64x64">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        
+    <title>Aquaculture model - ASAP</title>
+
+    <script type="text/javascript" src= {{ cdn_js|safe }} ></script>
+
+    <!-- This is a testing section in running Javascript dirctly in html-->
+    <script type=text/javascript>
+      $(function() {
+        $('a#process_input').bind('click', function() {
+
+          $.getJSON('/background_process', {
+            
+            inputTemp: $('input[name="inputTemp"]').val(),
+            inputSal: $('input[name="inputSal"]').val(),
+            inputSMR: $('input[name="inputSMR"]').val(),
+            inputEXP: $('input[name="inputEXP"]').val(),
+            inputUcrit: $('input[name="inputUcrit"]').val(),
+            inputSDA: $('input[name="inputSDA"]').val(),
+            inputFLEN: $('input[name="inputFLEN"]').val(),
+            inputCIRC: $('input[name="inputCIRC"]').val(),
+            inputDEPT: $('input[name="inputDEPT"]').val(),
+            inputVELO: $('input[name="inputVELO"]').val(),
+            inputBLS: $('input[name="inputBLS"]').val(),
+            inputFMASS: $('input[name="inputFMASS"]').val(),
+            inputNUMFISH: $('input[name="inputNUMFISH"]').val(),
+            inputStudy: $('select[name="inputStudy"]').val()
+
+          } , function(data) {
+            $("#O2envL").text(data.result.O2envL);
+            $("#O2envm3").text(data.result.O2envm3);
+            $("#UOPT").text(data.result.UOPT);
+            $("#UOPT2").text(data.result.UOPT);
+            $("#UOPTFED").text(data.result.UoptFed);
+            $("#UOPTFED2").text(data.result.UoptFed);
+            $("#SCRIPT").text(data.result.SCRIPT);
+            $("#VOL").text(data.result.VOL);
+            $("#DIAM").text(data.result.DIAM);
+            $("#RADI").text(data.result.RADI);
+            $("#TMASS").text(data.result.TMASS);
+            $("#FDEN").text(data.result.FDEN);
+            $("#SS").text(data.result.SS);
+            $("#WF").text(data.result.WF);
+            $("#threshold").text(data.result.threshold);
+            $("#thresholdval").text(data.result.thresholdval);
+            
+            $("#Time2Rest0List").text(data.result.Time2RestList[0]);
+            $("#Time2Rest1List").text(data.result.Time2RestList[1]);
+            $("#Time2Rest2List").text(data.result.Time2RestList[2]);
+            $("#Time2Rest3List").text(data.result.Time2RestList[3]);
+            $("#Time2Rest4List").text(data.result.Time2RestList[4]);
+            
+            $("#Time2RestFed0List").text(data.result.Time2RestFedList[0]);
+            $("#Time2RestFed1List").text(data.result.Time2RestFedList[1]);
+            $("#Time2RestFed2List").text(data.result.Time2RestFedList[2]);
+            $("#Time2RestFed3List").text(data.result.Time2RestFedList[3]);
+            $("#Time2RestFed4List").text(data.result.Time2RestFedList[4]);
+            
+            $("#Time2Uopt0List").text(data.result.Time2UoptList[0]);
+            $("#Time2Uopt1List").text(data.result.Time2UoptList[1]);
+            $("#Time2Uopt2List").text(data.result.Time2UoptList[2]);
+            $("#Time2Uopt3List").text(data.result.Time2UoptList[3]);
+            $("#Time2Uopt4List").text(data.result.Time2UoptList[4]);
+
+            $("#Time2UoptFed0List").text(data.result.Time2UoptFedList[0]);
+            $("#Time2UoptFed1List").text(data.result.Time2UoptFedList[1]);
+            $("#Time2UoptFed2List").text(data.result.Time2UoptFedList[2]);
+            $("#Time2UoptFed3List").text(data.result.Time2UoptFedList[3]);
+            $("#Time2UoptFed4List").text(data.result.Time2UoptFedList[4]);
+
+            $("#MaxLengthList1").text(data.result.MaxLengthList[0]);
+            $("#MaxLengthList2").text(data.result.MaxLengthList[1]);
+            $("#MaxLengthList3").text(data.result.MaxLengthList[2]);
+            $("#MaxLengthList4").text(data.result.MaxLengthList[3]);
+            $("#MaxLengthList5").text(data.result.MaxLengthList[4]);
+            $("#MaxLengthList6").text(data.result.MaxLengthList[5]);
+            $("#MaxLengthList7").text(data.result.MaxLengthList[6]);
+            $("#MaxLengthList8").text(data.result.MaxLengthList[7]);
+            $("#MaxLengthList9").text(data.result.MaxLengthList[8]);
+            
+            $("#MaxLengthListSDA1").text(data.result.MaxLengthListSDA[0]);
+            $("#MaxLengthListSDA2").text(data.result.MaxLengthListSDA[1]);
+            $("#MaxLengthListSDA3").text(data.result.MaxLengthListSDA[2]);
+            $("#MaxLengthListSDA4").text(data.result.MaxLengthListSDA[3]);
+            $("#MaxLengthListSDA5").text(data.result.MaxLengthListSDA[4]);
+            $("#MaxLengthListSDA6").text(data.result.MaxLengthListSDA[5]);
+            $("#MaxLengthListSDA7").text(data.result.MaxLengthListSDA[6]);
+            $("#MaxLengthListSDA8").text(data.result.MaxLengthListSDA[7]);
+            $("#MaxLengthListSDA9").text(data.result.MaxLengthListSDA[8]);
+            
+            
+          
+            document.getElementById('inputStudy').value=0;
+            document.getElementById('inputTemp').value=data.result.Temp;
+            document.getElementById('inputSMR').value=data.result.SMR;
+            document.getElementById('inputEXP').value=data.result.EXP;
+            document.getElementById('inputSal').value=data.result.Sal;
+            document.getElementById('inputUcrit').value=data.result.Ucrit;
+            document.getElementById('inputFLEN').value=data.result.FLEN;
+            document.getElementById('inputFMASS').value=data.result.FMASS;
+            
+
+          });
+          return false;
+        });
+      });
+      $(document).ready(function(){
+        $('a#process_input').on('click', function(e){
+          e.preventDefault()
+          $.ajax({
+            url:'./_Update_plots',
+            type:'POST',
+            data:{inputSMR: $('input[name="inputSMR"]').val(),
+                inputStudy: $('select[name="inputStudy"]').val(),
+                inputTemp: $('input[name="inputTemp"]').val(),
+                inputSal: $('input[name="inputSal"]').val(),
+                inputSMR: $('input[name="inputSMR"]').val(),
+                inputEXP: $('input[name="inputEXP"]').val(),
+                inputUcrit: $('input[name="inputUcrit"]').val(),
+                inputSDA: $('input[name="inputSDA"]').val(),
+                inputFDEN: $('input[name="inputFDEN"]').val(),
+                inputFLEN: $('input[name="inputFLEN"]').val(),
+                inputCIRC: $('input[name="inputCIRC"]').val(),
+                inputDEPT: $('input[name="inputDEPT"]').val(),
+                inputVELO: $('input[name="inputVELO"]').val(),
+                inputBLS: $('input[name="inputBLS"]').val(),
+                inputFMASS: $('input[name="inputFMASS"]').val(),
+                inputNUMFISH: $('input[name="inputNUMFISH"]').val(),
+                inputStudy: $('select[name="inputStudy"]').val()
+              },
+
+            success : function(data){
+              // server returns rendered "update_content.html"
+              // which is just pure html, use this to replace the existing
+              // html within the "plot content" div
+              $('#plot-content').html(data)
+            }
+          })
+        });
+      });
+    </script>
+    <style>
+      input { 
+          text-align: right;
+          width: 70px;
+      }
+
+      * {
+          box-sizing: border-box;
+        }
+
+        /* Create two equal columns that floats next to each other */
+        .column {
+          float: center;
+          width: 50%;
+          padding: 30px;
+        }
+        
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+          .column {
+            width: 100%;
+          }
+        }
+
+        .topleft {
+          position: absolute;
+          top: 0;
+          left: 16px;
+          }
+        
+        .input-group-text {
+          font-size: 14px;
+        }
+        
+        .slidecontainer {
+          width: 80%; /* Width of the outside container */
+
+        }
+      
+        /* The slider itself */
+        .slider {
+          -webkit-appearance: none;
+          width: 100%;
+          height: 15px;
+          border-radius: 5px;  
+          background: #6b6b6b;
+          outline: none;
+          opacity: 0.7;
+          -webkit-transition: .2s;
+          transition: opacity .2s;
+        }
+
+        /* Mouse-over effects */
+        .slider:hover {
+          opacity: 1; /* Fully shown on mouse-over */
+        }
+
+        /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%; 
+          background: #0019a8;
+          cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          background: #34d4f0;
+          cursor: pointer;
+        }
+    </style>
+  </head>
+
+  <body>
+    <link rel="icon" href="{{url_for('static', filename='WebLogo.ico')}}", size="64x64">
+    <a id="0"></a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <!--<a class="navbar-brand" href="#">Testy</a>-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-item nav-link" href="/">Home</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item nav-link active" href="/model/">The Model</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item nav-link" href="/ref/">References</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item nav-link" href="/about/">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="row">
+      <div class="column">
+        <form>
+          <h4><a id="1">Variables and calculations</a></h4>
+          
+            <p>Fields can be populated using experimental data from this dropdown menu or you can use your own custom data.
+            Which ever you choose, you can always change the parameters and submit the new values to update the plots.</p>
+            <div class="input-group mb-3">
+              <select class="form-select" name=inputStudy id=inputStudy value="{{ Study|safe }}">
+                <option value=0>Custom</option>
+                <option value=1>Rainbow trout - 10C - 0.2kg - Bergsson et al (unpublished - Ph.D.)</option>
+                <option value=2>Rainbow trout - 10C - 1.4kg - Bergsson et al (unpublished - Ph.D.)</option>
+                <option value=3>Rainbow trout - 15C - 1.4kg - Bergsson et al (unpublished - Ph.D.)</option>
+                <option value=4>Rainbow trout - 20C - 1.4kg - Bergsson et al (unpublished - Ph.D.)</option>
+                <option value=5>Rainbow trout - 20C - 4.5kg - Sample data late summer </option>
+              </select>
+              <a href=# id=process_input><button class='btn btn-primary'>Update</button></a>
+            
+              
+            </div>
+            
+            <!--form method="POST" action="/calc/"-->
+
+            <h4><a id="2">1. Environmental variables</a></h4>
+            <p>In this section, the environmental variables are added to the model.</p>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text"><b>Changeable:</b></span>
+                <span class="input-group-text">Temperature C</span>
+                <input type="number" name="inputTemp" id="inputTemp" value="{{ Temp|safe }}" step="0.1" min="0" required>
+                <span class="input-group-text">Salinity</span>
+                <input type="number" name="inputSal" id="inputSal" value="{{ Sal|safe }}" step="0.1" min="0" required>
+                <a href=# id=process_input ><button class='btn btn-primary'>Update</button></a>
+            
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text"><b>Calculated:</b></span>
+                <span class="input-group-text">Oxygen concentration</span>
+                <!--<input type="float" name="inputUopt" id=O2envL value="{{ O2envL|safe }}" disabled readonly>-->
+                <span class="input-group-text" id=O2envL>...</span>
+                <span class="input-group-text">mg O2/L</span>
+                <span class="input-group-text" id=O2envm3>...</span>
+                <!--<input type="float" name="inputUoptFed" value="{{ O2envm3|safe }}" disabled readonly>-->
+                <span class="input-group-text">mg O2/m3</span>
+              </div>
+              
+              <div class="input-group mb-3">
+                <span class="input-group-text"><b>Calculated:</b></span>
+                <span class="input-group-text">Oxygen threshold</span>
+                <!--<input type="float" name="inputUopt" id=O2envL value="{{ O2envL|safe }}" disabled readonly>-->
+                <span class="input-group-text" id=threshold>...</span>
+                <span class="input-group-text">%</span>
+                <span class="input-group-text" id=thresholdval>...</span>
+                <!--<input type="float" name="inputUoptFed" value="{{ O2envm3|safe }}" disabled readonly>-->
+                <span class="input-group-text">mg O2/m3</span>
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text"><b>Updates:</b></span>
+                <span class="input-group-text">Plot B, C, D</span>            
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text"><b>Dissovled oxygen:</b></span>
+                <span class="input-group-text", style="background-color:#c7ffab">>70%</span>
+                <span class="input-group-text", style="background-color:#ffffab">70% - 40%</span>
+                <span class="input-group-text", style="background-color:#ffebab">40% - 20%</span> 
+                <span class="input-group-text", style="background-color:#fca9a9">20% - 0%</span>
+              </div>
+          
+            <h4><a id="3">2. Swimming energetics</a></h4>
+            <p>In this section the swimming energetics and critical swimmingspeed are added to calculate the optimale swimmingspeed in fed and unfed fish. 
+              Use the SDA field to add post prandial MO2. Results are plotted on the right</p>
+            
+              <div class="input-group mb-1">
+                <span class="input-group-text"><b>Changeable:</b></span>
+                <span class="input-group-text">SMR</span>
+                <input type="number" name="inputSMR" id="inputSMR" value="{{ SMR|safe }}"  step=".1" min="0" required>
+                <span class="input-group-text">mg O2/kg/h</span>
+                <span class="input-group-text">Exp</span>
+                <input type="number" name="inputEXP" id="inputEXP" value="{{ EXP|safe }}" step="0.001" min="0.2" required>
+                <span class="input-group-text">Ucrit</span>
+                <input type="number" name="inputUcrit" id="inputUcrit" value="{{ Ucrit|safe }}" step="0.1" min="0" required>
+                <span class="input-group-text">BL/s</span>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text"><b>Changeable:</b></span>
+                <span class="input-group-text">SDA</span>
+                <input type="number" name="inputSDA" id="inputSDA" value="{{ SDA|safe }}"  step="1" min="0" max="200" required>
+                <span class="input-group-text">% of SMR</span>
+                <a href=# id=process_input><button class='btn btn-primary'>Update</button></a>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text"><b>Calculated:</b></span>
+                <span class="input-group-text">Uopt - not fed</span>
+                <!--<input type="float" name="inputUopt" value="{{ Uopt|safe }}" disabled readonly>-->
+                <span class="input-group-text" id=UOPT>...</span>
+                <span class="input-group-text">BL/s</span>
+                <span class="input-group-text">Uopt - fed</span>
+                <!--<input type="float" name="inputUoptFed" value="{{ UoptFed|safe }}" disabled readonly>-->
+                <span class="input-group-text" id=UOPTFED>...</span>
+                <span class="input-group-text">BL/s</span>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text"><b>Updates:</b></span>
+                <span class="input-group-text">Plot A, B, C, D</span>            
+              </div>
+
+              <h4><a id="4">3. Cage dimensions</a></h4>
+              <p>Here the cage dimensions are added in order to calculate the cage volume.</p>         
+                <div class="input-group mb-3">
+                  <span class="input-group-text"><b>Changeable:</b></span>
+                  <span class="input-group-text">Circumference</span>
+                  <input type="number" name="inputCIRC" value="{{ CIRC|safe }}"  step="1" min="0" required>
+                  <span class="input-group-text">m</span>
+                  <span class="input-group-text">Depth</span>
+                  <input type="number" name="inputDEPT" value="{{ DEPT|safe }}" step="0.5" min="0" required>
+                  <span class="input-group-text">m</span>
+                  <a href=# id=process_input><button class='btn btn-primary'>Update</button></a>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text"><b>Calculated:</b></span>
+                  <span class="input-group-text">Diameter</span>
+                  <!--<input type="float" name="inputDIAM" value="{{ DIAM|safe }}" disabled readonly>-->
+                  <span class="input-group-text" id=DIAM>...</span>
+                  <span class="input-group-text">m</span>    
+                  <span class="input-group-text">Radius</span>
+                  <!--<input type="float" name="inputRADI" value="{{ RADI|safe }}" disabled readonly>-->
+                  <span class="input-group-text" id=RADI>...</span>
+                  <span class="input-group-text">m</span>
+                  <span class="input-group-text">Volume</span>
+                  <!--<input type="float" name="inputVOL" value="{{ VOL|safe }}" disabled readonly>-->
+                  <span class="input-group-text" id=VOL>...</span>
+                  <span class="input-group-text">m3</span>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text"><b>Updates:</b></span>
+                  <span class="input-group-text">Plot B, C, D</span>
+                </div>
+              <h4><a id="5">4. Fish density</a></h4>
+              <p>In this section the total number of fish in the cage as well as the avg. mass and length are added, to calculate the total mass and density</p>
+              
+                <div class="input-group mb-1">
+                  <span class="input-group-text"><b>Changeable:</b></span>
+                  <span class="input-group-text">Number of fish</span>
+                  <input type="number" name="inputNUMFISH" id="inputNUMFISH" value="{{ NUMFISH|safe }}"  step="1" min="0" required>
+                  <span class="input-group-text">x 1000</span>
+                  <span class="input-group-text">Avg. mass</span>
+                  <input type="number" name="inputFMASS" id="inputFMASS" value="{{ FMASS|safe }}" step="0.1" min="0" required>
+                  <span class="input-group-text">kg</span>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text"><b>Changeable:</b></span>
+                  <span class="input-group-text">Avg. length</span>
+                  <input type="number" name="inputFLEN" id="inputFLEN" value="{{ FLEN|safe }}" step="0.1" min="0" required>
+                  <span class="input-group-text">cm</span>
+                  <a href=# id=process_input><button class='btn btn-primary'>Update</button></a>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text"><b>Calculated:</b></span>
+                  <span class="input-group-text">Total mass</span>
+                  <!--<input type="float" name="inputTMASS" value="{{ TMASS|safe }}" disabled readonly>-->
+                  <span class="input-group-text" id=TMASS>...</span>
+                  <span class="input-group-text">kg</span>
+                  <span class="input-group-text">Fish Density</span>
+                  <!--<input type="float" name="inputFDEN" value="{{ FDEN|safe }}" disabled readonly>-->
+                  <span class="input-group-text" id=FDEN>...</span>
+                  <span class="input-group-text">kg/m3</span>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text"><b>Updates:</b></span>
+                  <span class="input-group-text">Plot B, C, D</span>
+                </div>
+                
+              <h4><a id="6">5. Swimming and current information</a></h4>
+                <p>In this section the swimming speed and current velocity are added for plot D.</p>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text"><b>Changeable:</b></span>
+                    <span class="input-group-text">Water flow</span>
+                    <input type="number" name="inputVELO" id="inputVELO" value="{{ VELO|safe }}" step="1" min="0" required>
+                    <span class="input-group-text">cm/s</span>
+                    <span class="input-group-text">Swimming speed</span>
+                    <input type="number" name="inputBLS" value="{{ BLS|safe }}" step="0.1" min="0" required>
+                    <span class="input-group-text">BL/s</span>
+                    <a href=# id=process_input><button class='btn btn-primary'>Update</button></a>
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text"><b>Calculated:</b></span>
+                    <span class="input-group-text">Water flow</span>
+                    <span class="input-group-text" id="WF">...</span>
+                    <span class="input-group-text">BL/s</span>
+                    <span class="input-group-text">Swimmingspeed</span>
+                    <span class="input-group-text" id="SS">...</span>
+                    <span class="input-group-text">cm/s</span>
+                    <!--input type="float" name="inputSS" value="{{ SS|safe }}" disabled readonly-->
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text"><b>Updates:</b></span>
+                    <span class="input-group-text">Plot D</span>
+                  </div>
+              <h4>6. Key values</h4>
+                <p>This section shows some of the key values from each plot</p>
+                  <div class="input-group mb-3">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Plot A.</th>
+                          <th scope="col">BL/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Uopt</th>
+                          <td id=UOPT2>...</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Uopt + fed</th>
+                          <td id=UOPTFED2>...</td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                  </div>
+
+
+                  <div class="input-group mb-3">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Plot B. Time</th>
+                          <th scope="col">@Rest</th>
+                          <th scope="col">@Rest + Fed</th>
+                          <th scope="col">@Uopt</th>
+                          <th scope="col">@Uopt + Fed</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Threshold % O2 airsat</th>
+                          <td id=Time2Rest4List>...</td>
+                          <td id=Time2RestFed4List>...</td>
+                          <td id=Time2Uopt4List>...</td>
+                          <td id=Time2UoptFed4List>...</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">70% O2 airsat</th>
+                          <td id=Time2Rest0List>...</td>
+                          <td id=Time2RestFed0List>...</td>
+                          <td id=Time2Uopt0List>...</td>
+                          <td id=Time2UoptFed0List>...</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">40% O2 airsat</th>
+                          <td id=Time2Rest1List>...</td>
+                          <td id=Time2RestFed1List>...</td>
+                          <td id=Time2Uopt1List>...</td>
+                          <td id=Time2UoptFed1List>...</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">20% O2 airsat</th>
+                          <td id=Time2Rest2List>...</td>
+                          <td id=Time2RestFed2List>...</td>
+                          <td id=Time2Uopt2List>...</td>
+                          <td id=Time2UoptFed2List>...</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Anoxia</th>
+                          <td id=Time2Rest3List>...</td>
+                          <td id=Time2RestFed3List>...</td>
+                          <td id=Time2Uopt3List>...</td>
+                          <td id=Time2UoptFed3List>...</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+
+                  </div>
+                  <div class="input-group mb-3">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Plot C.</th>
+                          <th scope="col">First meter</th>
+                          <th scope="col">Middle section</th>
+                          <th scope="col">Last meter</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">O2 (mg O2/L)</th>
+                          <td id=MaxLengthList1>...</td>
+                          <td id=MaxLengthList2>...</td>
+                          <td id=MaxLengthList3>...</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">O2 (%)</th>
+                          <td id=MaxLengthList4>...</td>
+                          <td id=MaxLengthList5>...</td>
+                          <td id=MaxLengthList6>...</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">O2 (mg O2/L) + fed</th>
+                          <td id=MaxLengthListSDA1>...</td>
+                          <td id=MaxLengthListSDA2>...</td>
+                          <td id=MaxLengthListSDA3>...</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">O2 (%) + fed</th>
+                          <td id=MaxLengthListSDA4>...</td>
+                          <td id=MaxLengthListSDA5>...</td>
+                          <td id=MaxLengthListSDA6>...</td>
+                        </tr>
+                        <thead>
+                          <tr>
+                            <th scope="row">Max cage size (Diameter)</th>
+                            <th scope="col">70% airsat limit</th>
+                            <th scope="col">40% airsat limit</th>
+                            <th scope="col">anoxic limit</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">Meters</th>
+                            <td id=MaxLengthList7>...</td>
+                            <td id=MaxLengthList8>...</td>
+                            <td id=MaxLengthList9>...</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Meters - Fed</th>
+                            <td id=MaxLengthListSDA7>...</td>
+                            <td id=MaxLengthListSDA8>...</td>
+                            <td id=MaxLengthListSDA9>...</td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                                    
+                  <!--div class="input-group mb-3">
+                    <span class="input-group-text"><b>Plot D.</b></span>
+                  </div-->
+            <!--
+              <h4>6. Key values</h4>
+              <p>This section shows a resume of the keyvalues from each plot</p>
+                <div class="input-group mb-3">
+                  <span class="input-group-text">Plot A: Duration before cage becomes hypoxic</span>
+                  <span class="input-group-text"></span>
+                        
+                  <span class="input-group-text">kg</span>
+                  <span class="input-group-text">Fish Density</span>
+                  <span class="input-group-text">kg/m3</span>
+                </div>-->
+        </form>        
+      </div>
+      
+      <div class="column">
+          <h3>Plots</h3>
+          <div id="plot-content">
+            {{DIV|safe}}
+          </div>
+          <!--div class="slidecontainer">
+            <p>Cage size: slide the bar to move through the cage</p>
+            <input type="range" min="1" max="{{ DIAM|safe }}" value="{{ DIAM|safe }}" class="slider" name="inputRangePos" id="inputRangePos">
+            <p>Chosen meter: <span id="VALUE"></span> m - press Update to refresh plots</p>
+            <a href=# id=process_input><button class='btn btn-primary'>Update</button></a>
+          </div-->
+          <p></p>
+          <p></p>
+          <p></p>
+          <button  type="button" class="btn btn-primary btn-lg" onclick="Refresh_all()"> ----> Reset all values <---- </button>
+          
+      </div>
+    </div>
+      
+    <!-- Script to control slider-->
+
+    <!--script>
+
+      var slider = document.getElementById("inputRangePos");
+      var output = document.getElementById("VALUE");
+      output.innerHTML = slider.value;
+
+      slider.oninput = function() {
+        output.innerHTML = this.value;
+        
+      }
+    </script-->
+    <script>
+      function Refresh_all() {
+        location.reload();
+      }
+    </script>
+
+    <script type=text/javascript>
+      
+    </script>
+
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    
+    
+    {{SCRIPT|safe}}
+  </body>
+</html>

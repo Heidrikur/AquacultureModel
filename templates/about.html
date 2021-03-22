@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="{{url_for('static', filename='WebLogo.ico')}}", size="64x64">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        
+        <title>Aquaculture model</title>
+
+        <script type="text/javascript" src= {{ cdn_js|safe }} ></script>
+        
+        <style>
+        * {
+            box-sizing: border-box;
+            }
+
+            .column {
+            float: left;
+            width: 33.3%;
+            margin-bottom: 8px;
+            padding: 0 8px;
+            }
+
+            .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            margin: 50px;
+            }
+
+            @media screen and (max-width: 650px) {
+            .column {
+                width: 100%;
+                display: block;
+            }
+            }
+        </style>
+    </head>
+    <body>
+      <link rel="icon" href="{{url_for('static', filename='WebLogo.ico')}}", size="64x64">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <!--<a class="navbar-brand" href="#">The shit</a>-->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-item nav-link" href="/">Home</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-item nav-link" href="/model/">The Model</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-item nav-link" href="/ref/">References</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-item nav-link active" href="/about/">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+        <div class="container-fluid">
+            <h1>About Us</h1>
+            <p>Development of the model shown on this webpage was created at the University of Copenhagen, marinebiological section.</p>
+          </div>
+          
+          <div class="row">
+            <div class="column">
+              <div class="card">
+                <img src="{{url_for('static', filename='Heidrikur.png')}}" alt="heidrikur" style="width:100%">
+                <div class="container">
+                  <h3>Heiðrikur Bergsson</h3>
+                  <p class="title">ph.d. fellow</p>
+                  <p>heidrikur.bergsson@gmail.com</p>
+                </div>
+              </div>
+            </div>
+          
+            <div class="column">
+              <div class="card">
+                <img src="{{url_for('static', filename='Morten.jpg')}}" alt="morten" style="width:100%">
+                <div class="container">
+                  <h3>Morten Bo Søndergaard Svendsen</h3>
+                  <p class="title">Engineer, ph.d.</p>
+                  <p>mortenbosvendsen@gmail.com</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="column">
+              <div class="card">
+                <img src="{{url_for('static', filename='John.jpg')}}" alt="john" style="width:100%">
+                <div class="container">
+                  <h3>John Fleng Steffensen</h3>
+                  <p class="title">Professor</p>
+                  <p>jfsteffensen@bio.ku.dk</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+
+<!DOCTYPE html>
+<html>
+  <body>
+   <div class="about">
+     <h1>About me</h1>
+     <p>This is a portfolio site about anything that can be put in a portfolio.</p>
+   </div>
+  
