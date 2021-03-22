@@ -8,9 +8,9 @@ http://o2aquaculturemodel.pythonanywhere.com/
 
 
 ## About
-The model is based on results and observations from the Ph.d. thesis by H. Bergsson, University of Copenhagen, Marinebiological Laboratory.
+The model is based on results and observations from the Ph.d. thesis by H. Bergsson, University of Copenhagen, Marine Biological Laboratory.
 
-It calculates the expected oxygen available in a sea cage at given temperature and salinity.
+It calculates the expected oxygen available in a sea cage at given temperature and salinity. The novelty of the model, lies in that it includes the respiratory physiology of the fish.
 
 The model is implemented in Flask.
 
