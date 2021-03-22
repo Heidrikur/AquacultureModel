@@ -1,6 +1,8 @@
 import numpy as np
 from math import exp,log
 
+# Based on Green and Carrit. Code from AquaResp
+
 def beta1atm(temperature, salinity):
     oxysolmmhg,oxysolkpa = oxygensolubility(temperature,salinity)
     pO2maxmmhg, pO2maxkpa = partialpressureoxygen(temperature, 760, "mmhg")
@@ -15,14 +17,14 @@ def partialpressureoxygen(temp, patm, type):
     else:
         print( "Not Supported unit")
 
-    c1= 273.16 
-    c2=18.19730 
-    c3=373.16 
-    c4=3.1813*0.0000001	
-    c5=26.12050 
+    c1= 273.16
+    c2=18.19730
+    c3=373.16
+    c4=3.1813*0.0000001
+    c5=26.12050
     c6=1.8726*0.01
-    c7=8.03945 
-    c8 =5.02802 
+    c7=8.03945
+    c8 =5.02802
 
     pO2max = (pa-exp(c2*(1-(c3/(temp+c1)))+(c4*(1-exp(c5*(1-(temp+c1)/c3))))-(c6*(1-exp(c7*(1-(c3/(temp+c1))))))+(c8*log((c3/(temp+c1)))))*pa)*0.2094
     pO2maxkpa = pO2max/760 * 101.3
@@ -38,8 +40,8 @@ def oxygensolubility(temp,salinity):
     c7 = -0.04442
     c8 = 0.0007145
     c9 = 273.16
-    
+
     oxysolmmhg = exp((c1+(c2/(temp+c9))+(c3*log(temp+c9))+(c4*(temp+c9)))-((salinity-0.03)/1.805)*((c5+(c6/(c9+temp))+(c7*log(c9+temp))+(c8*(c9+temp)))))/22.414*32/760*1000
     oxysolkpa = (oxysolmmhg*760 ) / 101.3
-    
+
     return oxysolmmhg,oxysolkpa
